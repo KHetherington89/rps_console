@@ -18,3 +18,25 @@
 //      - If rounds < 5, play again
 //      - If rounds >= 5, stop
 //      - Determine highest score and declare overall winner
+
+
+
+
+// VALUES: 1=Rock, 2=Paper, 3=Scissors
+
+let playChoice = 0;
+let compChoice = 0;
+let playScore = 0;
+let compScore = 0;
+
+function getCompChoice(){
+    compChoice = Math.floor(Math.random()*3) + 1
+}
+
+getCompChoice();
+
+console.log(compChoice);
+
+playChoice = prompt ("Choose Your Weapon!","");
+
+console.log(playChoice);
