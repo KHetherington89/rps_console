@@ -29,6 +29,7 @@ let compChoice = 0;
 let playScore = 0;
 let compScore = 0;
 
+// Generates a random number 1-3
 function getCompChoice(){
     compChoice = Math.floor(Math.random()*3) + 1
 }
@@ -37,6 +38,17 @@ getCompChoice();
 
 console.log(compChoice);
 
-playChoice = prompt ("Choose Your Weapon!","");
+// Prompts the player for input and immediately converts to lowercase before storing in playChoice
+// The +a on the prompt here prevents an error if the player cancels by preventing the prompt returning null,
+// hence the extra a on the options.
+alert("Welcome to Rock Paper Scissors \n Just type your choice in the prompt!");
+playChoice = ("a"+prompt("Choose Your Weapon!","")).toLowerCase();
+
+// While loop repeats request for input if an invalid choice is made
+while (playChoice != "arock" && playChoice != "apaper" && playChoice != "ascissors"){
+    playChoice = ("a"+prompt("Please make a valid choice!","")).toLowerCase();
+}
 
 console.log(playChoice);
+
+
