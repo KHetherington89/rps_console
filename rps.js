@@ -2,10 +2,6 @@
 
 // VALUES: 1=Rock, 2=Paper, 3=Scissors
 
-
-alert("Welcome to Rock Paper Scissors \n First to 5 \n Just type your choice in the prompt!");
-
-
 // Generates a random number 1-3
 function getCompChoice(){
     let compChoice;
@@ -15,9 +11,9 @@ function getCompChoice(){
 }
 
 
-// Prompts the player for input and immediately converts to lowercase before storing in playChoice
-// The +a on the prompt here prevents an error if the player cancels by preventing the prompt returning null,
-// hence the extra a on the options.
+/* Prompts the player for input and immediately converts to lowercase before storing in playChoice
+    The +"a" on the prompt here prevents an error if the player cancels by preventing the prompt returning null,
+    hence the extra a on the options.*/
 function getPlayChoice(){
     let playChoice
     playChoice = ("a"+prompt("Choose Your Weapon!","")).toLowerCase();
@@ -54,9 +50,10 @@ function playRound (playChoice, compChoice){
 }
 
 function playGame(){
+    alert("Welcome to Rock Paper Scissors \n First to 5 \n Just type your choice in the prompt!");
     let playScore = 0;
     let compScore = 0;
-
+    // While loop looks for either players score to reach 5
     while((playScore < 5) && (compScore < 5)){
         let winner = playRound(getPlayChoice(),getCompChoice())
         // Tie game doesn't increment any score counter
@@ -84,7 +81,6 @@ function playGame(){
     
     alert("Thank you for playing. \n Reload the page to play again.")
 }
-
 
 playGame();
 
