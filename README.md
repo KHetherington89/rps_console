@@ -1,5 +1,5 @@
 # rps_console
-Rock Paper Scissors for the dev console
+Rock Paper Scissors for the browser console
 
 This project was created as part of the Javascript fundamentals section of The Odin Project. 
 The aim was to practice skills learned so far in Javascript as well as looking up new things.
