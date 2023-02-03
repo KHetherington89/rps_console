@@ -6,11 +6,6 @@
 alert("Welcome to Rock Paper Scissors \n First to 5 \n Just type your choice in the prompt!");
 
 
-let playScore = 0;
-let compScore = 0;
-let roundWinner;
-
-
 // Generates a random number 1-3
 function getCompChoice(){
     let compChoice;
@@ -47,32 +42,52 @@ function getPlayChoice(){
 
 
 // Compares player inputs, determines winner, adds to scores, and alerts player of outcome
-// 1st IF determines tie game
 function playRound (playChoice, compChoice){
-    if (playChoice == compChoice){
-        alert("Tie game! Try again");
-    }
+    let winner;
+    // 1st IF determines tie game
+    if (playChoice == compChoice) { winner = "tie" }
     // 2nd IF determines player win
-    else if (playChoice > compChoice ||((compChoice == 3)&&(playChoice == 1))){
-        playScore ++
-        alert(`You win this round.\n Player: ${playScore}\n Computer: ${compScore}`);
-    }
+    else if (playChoice > compChoice ||((compChoice == 3)&&(playChoice == 1))) { winner = "player" }
     // 3rd IF determines computer win
-    else if (compChoice > playChoice ||((playChoice == 3)&&(compChoice == 1))){
-        compScore ++
-        alert(`Computer wins this round.\n Player: ${playScore}\n Computer: ${compScore}`);
-    }
-    // Final else in case something shits itself
-    else {alert("Whoopsie doodle, something went wonky. \n Try again eh.");}
-
-    console.log("playScore: " + playScore);
-    console.log("compScore: " + compScore);
+    else if (compChoice > playChoice ||((playChoice == 3)&&(compChoice == 1))) { winner = "comp" }
+    return winner;
 }
 
-playRound(getPlayChoice(),getCompChoice());
+function playGame(){
+    let playScore = 0;
+    let compScore = 0;
 
-//function playGame()
+    while((playScore < 5) && (compScore < 5)){
+        let winner = playRound(getPlayChoice(),getCompChoice())
+        // Tie game doesn't increment any score counter
+        if (winner == "tie"){
+        alert("Tie game! Try again");
+        }
+        // Increments the player score and announces win
+        else if (winner == "player"){
+            playScore ++
+            alert(`You win this round.\n Player: ${playScore}\n Computer: ${compScore}`);
+        }
+        // Increments computer score and announces win
+        else if (winner = "comp"){
+            compScore ++
+            alert(`Computer wins this round.\n Player: ${playScore}\n Computer: ${compScore}`);
+        }
+    }
 
-//function playRound() 
+    let scoreLine = `Player ${playScore} : ${compScore} Computer`
 
-    //while ((playScore < 5) && (compScore < 5))
+    if (playScore == 5){
+        alert(`Congratulations, you win. \n ${scoreLine}`)}
+    else 
+    alert(`You lose. Try again. \n ${scoreLine}`);
+    
+    alert("Thank you for playing. \n Reload the page to play again.")
+}
+
+
+playGame();
+
+
+
+
