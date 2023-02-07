@@ -19,17 +19,24 @@ function playerClicks(){
     playChoice=(this.id);
     console.log(playChoice);
     let compChoice = getCompChoice();
+    let resultText;
     if (compChoice === playChoice){
-        console.log("tie");
-    }
+        resultText=("tie");
+        }
     else if((playChoice === "rock" && compChoice === "paper") || (playChoice === "paper" && compChoice === "scissors") ||
             (playChoice === "scissors" && compChoice === "rock")){
-                console.log("You lose");
+            resultText=("You lose");
             }
     else if((compChoice === "rock" && playChoice === "paper") || (compChoice === "paper" && playChoice === "scissors") ||
-    (compChoice === "scissors" && playChoice === "rock")){
-        console.log("You win");
-    } 
+            (compChoice === "scissors" && playChoice === "rock")){
+            resultText=("You win");
+            } 
+    
+    const scoreTable = document.querySelector("#scoreTable");
+    const scoreBox = document.createElement("p");
+    scoreBox.classList.add("scoreBox");
+    scoreBox.textContent=(`${resultText}`);
+    scoreTable.appendChild(scoreBox);
 }
 
 
