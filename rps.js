@@ -1,43 +1,72 @@
-// Rock Paper Scissors
-
-// VALUES: 1=Rock, 2=Paper, 3=Scissors
-
-let weapons = ["rock", "paper", "scissors"];
-
-const btns = document.querySelectorAll('.btn');
-    btns.forEach(btn => {
-        btn.addEventListener('click', playerClicks) 
-    });
+const weapons = ["rock", "paper", "scissors"];
+let playScore = 0;
+let compScore = 0;
 
 function getCompChoice(){
     let compChoice = weapons.at(Math.floor(Math.random()*(weapons.length)))
-    console.log(compChoice);
     return compChoice;
-}
+    }
 
-function playerClicks(){
-    playChoice=(this.id);
-    console.log(playChoice);
-    let compChoice = getCompChoice();
-    let resultText;
-    if (compChoice === playChoice){
-        resultText=("tie");
-        }
+function findWinner(playChoice, compChoice){
+    let winner;
+    if (compChoice === playChoice) 
+        { winner = "tie" }
     else if((playChoice === "rock" && compChoice === "paper") || (playChoice === "paper" && compChoice === "scissors") ||
-            (playChoice === "scissors" && compChoice === "rock")){
-            resultText=("You lose");
-            }
+            (playChoice === "scissors" && compChoice === "rock")) 
+                { winner = "computer"}              
     else if((compChoice === "rock" && playChoice === "paper") || (compChoice === "paper" && playChoice === "scissors") ||
-            (compChoice === "scissors" && playChoice === "rock")){
-            resultText=("You win");
-            } 
+            (compChoice === "scissors" && playChoice === "rock")) 
+                { winner = "player" } 
+    return winner;
+    }
+
+    function textMaker(winner, compChoice, playChoice){
+        if (winner == "tie"){
+            resultText=("Tie round.");
+            }
+            else if(winner == "computer"){
+             resultText = (`You lose. ${compChoice.charAt(0).toUpperCase() + compChoice.slice(1)} beats ${playChoice}`);
+            }            
+            else if(winner == "player"){
+                resultText = (`You win. ${playChoice.charAt(0).toUpperCase() + playChoice.slice(1)} beats ${compChoice}`);
+            }
+            return resultText;
+        }
     
-    const scoreTable = document.querySelector("#scoreTable");
+    function playRound(playChoice){
+        let compChoice = getCompChoice();
+        let winner = findWinner(playChoice, compChoice); 
+        if (winner == "computer"){compScore ++}
+        else if (winner == "player"){playScore ++}
+        let textToShow = textMaker(winner, compChoice, playChoice);
+        console.log(playChoice);
+        console.log(compChoice);
+        console.log(winner); 
+        console.log(textToShow);
+        console.log(`player ${playScore}`);
+        console.log(`comp ${compScore}`);
+        }
+
+
+
+    
+  
+    
+  /*   const scoreTable = document.querySelector("#scoreTable");
     const scoreBox = document.createElement("p");
     scoreBox.classList.add("scoreBox");
     scoreBox.textContent=(`${resultText}`);
-    scoreTable.appendChild(scoreBox);
-}
+    scoreTable.appendChild(scoreBox); */
+
+
+    const btns = document.querySelectorAll('.btn');
+    btns.forEach(btn => {
+        btn.addEventListener('click', function(){
+            playRound(btn.id);
+        }) 
+    });
+
+
 
 
 
