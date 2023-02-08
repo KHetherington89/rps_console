@@ -1,4 +1,12 @@
-const weapons = ["rock", "paper", "scissors"];
+// Remember that compChoice is always given as the name of a const containing an array.
+// playChoice is always taken as a string.
+
+const rock = ["rock", "paper", "spock"];
+const paper = ["paper", "scissors", "lizard"];
+const scissors = ["scissors", "rock", "spock"];
+const lizard = ["lizard", "scissors", "rock"];
+const spock = ["spock", "paper", "lizard"];
+const weapons = [rock, paper, scissors, lizard, spock];
 let playScore = 0;
 let compScore = 0;
 
@@ -9,14 +17,11 @@ function getCompChoice(){
 
 function findWinner(playChoice, compChoice){
     let winner;
-    if (compChoice === playChoice) 
+    if (compChoice[0] === playChoice) 
         { winner = "tie" }
-    else if((playChoice === "rock" && compChoice === "paper") || (playChoice === "paper" && compChoice === "scissors") ||
-            (playChoice === "scissors" && compChoice === "rock")) 
-                { winner = "computer"}              
-    else if((compChoice === "rock" && playChoice === "paper") || (compChoice === "paper" && playChoice === "scissors") ||
-            (compChoice === "scissors" && playChoice === "rock")) 
-                { winner = "player" } 
+    else if(compChoice.includes(playChoice)) 
+            { winner = "player"}              
+    else    { winner = "computer" } 
     return winner;
     }
 
@@ -25,10 +30,10 @@ function textMaker(winner, compChoice, playChoice){
         resultText=("Tie round.");
         }
         else if(winner == "computer"){
-            resultText = (`You lose. ${compChoice.charAt(0).toUpperCase() + compChoice.slice(1)} beats ${playChoice}`);
+            resultText = (`You lose. ${compChoice[0].charAt(0).toUpperCase() + compChoice[0].slice(1)} beats ${playChoice}`);
         }            
         else if(winner == "player"){
-            resultText = (`You win. ${playChoice.charAt(0).toUpperCase() + playChoice.slice(1)} beats ${compChoice}`);
+            resultText = (`You win. ${playChoice.charAt(0).toUpperCase() + playChoice.slice(1)} beats ${compChoice[0]}`);
         }
         return resultText;
     }
@@ -42,7 +47,7 @@ function playRound(playChoice){
     const startText = document.getElementById("startText");
     startText.textContent = "PLAYER COMPUTER";
     const scoreLine = document.createElement("p");
-    scoreLine.textContent = `${playChoice} ${playScore} : ${compScore} ${compChoice}`;
+    scoreLine.textContent = `${playChoice} ${playScore} : ${compScore} ${compChoice[0]}`;
     const scoreBox = document.getElementById("scoreBox");
     scoreBox.appendChild(scoreLine);
     }
