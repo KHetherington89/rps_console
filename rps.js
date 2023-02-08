@@ -20,44 +20,32 @@ function findWinner(playChoice, compChoice){
     return winner;
     }
 
-    function textMaker(winner, compChoice, playChoice){
-        if (winner == "tie"){
-            resultText=("Tie round.");
-            }
-            else if(winner == "computer"){
-             resultText = (`You lose. ${compChoice.charAt(0).toUpperCase() + compChoice.slice(1)} beats ${playChoice}`);
-            }            
-            else if(winner == "player"){
-                resultText = (`You win. ${playChoice.charAt(0).toUpperCase() + playChoice.slice(1)} beats ${compChoice}`);
-            }
-            return resultText;
+function textMaker(winner, compChoice, playChoice){
+    if (winner == "tie"){
+        resultText=("Tie round.");
         }
-    
-    function playRound(playChoice){
-        let compChoice = getCompChoice();
-        let winner = findWinner(playChoice, compChoice); 
-        if (winner == "computer"){compScore ++}
-        else if (winner == "player"){playScore ++}
-        let textToShow = textMaker(winner, compChoice, playChoice);
-        console.log(playChoice);
-        console.log(compChoice);
-        console.log(winner); 
-        console.log(textToShow);
-        console.log(`player ${playScore}`);
-        console.log(`comp ${compScore}`);
+        else if(winner == "computer"){
+            resultText = (`You lose. ${compChoice.charAt(0).toUpperCase() + compChoice.slice(1)} beats ${playChoice}`);
+        }            
+        else if(winner == "player"){
+            resultText = (`You win. ${playChoice.charAt(0).toUpperCase() + playChoice.slice(1)} beats ${compChoice}`);
         }
-
-
-
+        return resultText;
+    }
     
-  
-    
-  /*   const scoreTable = document.querySelector("#scoreTable");
-    const scoreBox = document.createElement("p");
-    scoreBox.classList.add("scoreBox");
-    scoreBox.textContent=(`${resultText}`);
-    scoreTable.appendChild(scoreBox); */
-
+function playRound(playChoice){
+    let compChoice = getCompChoice();
+    let winner = findWinner(playChoice, compChoice); 
+    if (winner == "computer"){compScore ++}
+    else if (winner == "player"){playScore ++}
+    let textToShow = textMaker(winner, compChoice, playChoice);
+    const startText = document.getElementById("startText");
+    startText.textContent = "PLAYER COMPUTER";
+    const scoreLine = document.createElement("p");
+    scoreLine.textContent = `${playChoice} ${playScore} : ${compScore} ${compChoice}`;
+    const scoreBox = document.getElementById("scoreBox");
+    scoreBox.appendChild(scoreLine);
+    }
 
     const btns = document.querySelectorAll('.btn');
     btns.forEach(btn => {
