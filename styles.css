@@ -1,0 +1,74 @@
+body{
+  margin : 0px;
+  padding : 15%;
+  background-color:bisque;
+}
+
+.mainContent{
+  display : flex;
+  flex: 1;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 10%;
+}
+
+.roundText{
+  width: 40%;
+  font-size: 2vw;
+}
+
+.scores{
+  width: 20%;
+  height: 20%;
+  background-color: aqua;
+  border-style: double;
+}
+
+
+
+
+
+.playButton{
+  display: flex;
+  width: 15%;
+  background-color: white;
+}
+
+.buttonImage{
+  max-width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* .btn{
+    background-color: rgb(165, 65, 123);
+    max-width : 150px;
+} */
+
+
+/* .btn {
+    background: #FF7A59;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+
+  .btnImage {
+    max-width: 100%;
+  }
+
+  #buttonHolder {
+    display: flex;
+  } */

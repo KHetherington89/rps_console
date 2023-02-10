@@ -7,6 +7,9 @@ const scissors = ["scissors", "rock", "spock"];
 const lizard = ["lizard", "scissors", "rock"];
 const spock = ["spock", "paper", "lizard"];
 const weapons = [rock, paper, scissors, lizard, spock];
+const playScoreOut = document.getElementById("playScoreOut");
+const compScoreOut = document.getElementById("compScoreOut");
+const roundText = document.getElementById("roundText");
 let playScore = 0;
 let compScore = 0;
 
@@ -44,12 +47,9 @@ function playRound(playChoice){
     if (winner == "computer"){compScore ++}
     else if (winner == "player"){playScore ++}
     let textToShow = textMaker(winner, compChoice, playChoice);
-    const startText = document.getElementById("startText");
-    startText.textContent = "PLAYER COMPUTER";
-    const scoreLine = document.createElement("p");
-    scoreLine.textContent = `${playChoice} ${playScore} : ${compScore} ${compChoice[0]}`;
-    const scoreBox = document.getElementById("scoreBox");
-    scoreBox.appendChild(scoreLine);
+    playScoreOut.textContent = `${playScore}`;
+    compScoreOut.textContent = `${compScore}`;
+    roundText.textContent = `${resultText}`;   
     }
 
     const btns = document.querySelectorAll('.btn');
@@ -61,7 +61,12 @@ function playRound(playChoice){
 
 
 
-
-
+/*     const startText = document.getElementById("startText");
+    startText.textContent = textToShow;
+    const scoreLine = document.createElement("p");
+    scoreLine.textContent = `${playChoice} ${playScore} : ${compScore} ${compChoice[0]}`;
+    const scoreBox = document.getElementById("scoreBox");
+    scoreBox.appendChild(scoreLine);
+ */
 
 

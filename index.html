@@ -5,18 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link rel = "stylesheet" href = "styles.css">
 </head>
 <body>
-    
-<button type="button" class="btn" id="rock">Rock</button>
-<button type="button" class="btn" id="paper">Paper</button>
-<button type="button" class="btn" id="scissors">Scissors</button>
-<button type="button" class="btn" id="lizard">Lizard</button>
-<button type="button" class="btn" id="spock">Spock</button>
 
-<div id="scoreBox">
-    <p id="startText">ARE YOU READY TO PLAY! <br> Make your choice.</p>
+<div class="mainContent" id="rulesAndScore">
+    <div class="scores">Player:<br>
+        <div id="playScoreOut">0</div>
+    </div>
+    <div id="roundText">Welcome to Rock Paper Scissors Lizard Spock! <br> First to 5 wins <br> Click an icon to begin</div>
+    <div class="scores">Computer:<br>
+        <div id="compScoreOut">0</div>
+    </div>
 </div>
+<div class="mainContent" id="playerButtons">
+    <div class="btn" id="rock"><img class="buttonImage" src="icons/rockIcon.png"></div>
+    <div class="btn" id="paper"><img class="buttonImage" src="icons/paperIcon.png"></div>
+    <div class="btn" id="scissors"><img class="buttonImage" src="icons/scissorsIcon.png"></div>
+    <div class="btn" id="lizard"><img class="buttonImage" src="icons/lizardIcon.png"></div>
+    <div class="btn" id="spock"><img class="buttonImage" src="icons/spockIcon.png"></div>
+</div>
+
+<div class="mainContent" id="footer">Page by K.Hetherington, 2023 <br> Part of The Odin Project</div>
+
+
+
+
+
 
 
 <script src="rps.js"></script>
@@ -24,3 +39,21 @@
 
 </body>
 </html>
+
+
+
+
+<!-- <div id="scoreBox">
+    <p id="startText">ARE YOU READY TO PLAY! <br> Make your choice.</p>
+</div>
+
+<div id="buttonHolder">
+    <div class="btn" id="rock"><img class="btnImage" src="icons/rock.png"></div>
+    <div class="btn" id="paper"><img class="btnImage" src="icons/paper.png"></div>
+    <div class="btn" id="scissors"><img class="btnImage" src="icons/scissors.png"></div>
+    <div class="btn" id="lizard"><img class="btnImage" src="icons/lizard.png"></div>
+    <div class="btn" id="spock"><img class="btnImage" src= "icons/spock.png"></div>
+</div>
+
+<p id="playScoreOut">--</p>
+<p id="compScoreOut">--</p> -->
