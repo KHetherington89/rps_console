@@ -9,11 +9,12 @@
 </head>
 <body>
 
-<div class="mainContent" id="rulesAndScore">
+<div class="mainContent" id="header">ROCK PAPER SCISSORS LIZARD SPOCK</div>
+<div class="mainContent" id="rulesAndScores">
     <div class="scores">Player:<br>
         <div id="playScoreOut">0</div>
     </div>
-    <div id="roundText">Welcome to Rock Paper Scissors Lizard Spock! <br> First to 5 wins <br> Click an icon to begin</div>
+    <div id="roundText">Welcome<br> First to 5 wins <br> Click an icon to begin</div>
     <div class="scores">Computer:<br>
         <div id="compScoreOut">0</div>
     </div>
@@ -28,21 +29,14 @@
 
 <div class="mainContent" id="footer">Page by K.Hetherington, 2023 <br> Part of The Odin Project</div>
     
-<div class="overlay" id="gameOver">
-    <div id="overlayMiddle">
-        <p id="winLoseText"></p>
-        <button type="button"  id="newGameButton">Play Again</button>
-    </div>
+<div class="overlay inactive" id="overlayTransparent"></div>
+    
+<div class="overlay inactive" id="overlayCenter">
+    <p id="winLoseText">TEST(icles)</p>
+    <button type="button"  id="newGameButton">Play Again</button>
 </div>
 
-
-
-
-
-
-
 <script src="rps.js"></script>
-
 
 </body>
 </html>

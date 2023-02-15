@@ -1,55 +1,110 @@
+@import url(https://fonts.googleapis.com/css?family=Atomic+Age);
+
 body{
-  background-color:bisque;
+  background-color:rgb(0, 0, 0);
+  color: white;
+  display : flex;
+  flex-direction: column;
+  font-family: "Atomic Age";
+  justify-content: center;
   margin : 0px;
-  padding : 15%;
+  min-width: 500px;
+  padding : 5% 15%;
 }
 
+.btn{
+  background-color: rgb(155, 248, 168);
+  border-radius: 10%;
+  border-style: double;
+  margin: 2%;
+  padding: 5px;
+  width: 15%;
+}
+
+.btn:hover{
+  background-color: rgb(99, 12, 12);
+  scale: 1.2;
+  box-shadow: 0 5px 15px rgba(99, 12, 12, 0.7);
+}
 
 .buttonImage{
   max-width: 100%;
 }
 
+#header{
+  font-size: 3.5vw;
+}
+
 .mainContent{
   align-items: center;
   display : flex;
-  flex: 1;
   justify-content: space-around;
-  margin-bottom: 10%;
+  margin-bottom: 8%;
   text-align: center;
 }
 
-.overlay {
-  background-color: rgb(209, 3, 3);
-  display: none;
+#newGameButton{
+  background-color: rgb(63, 145, 170);
+  border-radius: 30%;
+  border-style: double;
+  color: white;
+  font-family: "Atomic Age";
+  font-size: 2vw;
+  padding: 15px;
+}
+
+#newGameButton:hover {
+  box-shadow: 0 5px 15px rgba(63, 145, 170, 0.7);
+}
+
+.overlay.inactive {
+  display: none !important;
+}
+
+#overlayTransparent {
+  background-color: rgb(0, 0, 0);
+  display: block;
   height: 100%;
   left: 0;
-  opacity: 0.6;
+  opacity: 95%;
   position: fixed;
   top: 0;
   width: 100%;
 }
 
-.overlay.active {
-  align-items: center;
+#overlayCenter {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  height: 100%;
+  left: 0;
+  padding-top: 300px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
 }
 
-.playButton{
-  background-color: white;
-  display: flex;
-  width: 15%;
+#roundText{
+  font-size: 2.5vw;
+  flex: 1 1 70%;
+  margin: 0px 15px;
 }
 
-.roundText{
-  font-size: 2vw;
-  width: 40%;
+#rulesAndScores{
+  flex: 0 0 auto;
+  min-height: 200px;
 }
 
 .scores{
-  background-color: aqua;
+  background-color: rgb(63, 145, 170);
   border-style: double;
+  flex: 1 1 15%;
+  font-size: 1.5vw;
   height: 20%;
-  width: 20%;
+}
+
+#winLoseText{
+  font-size: 3vw;
+  margin-bottom: 30px;
 }
