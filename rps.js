@@ -19,13 +19,12 @@ let playScore = 0;
 let compScore = 0;
 
 function playRound(playChoiceString){
-    let resultText;
     let playChoice = playChoiceArrayFind(playChoiceString) //  Immediately "swap" string for corresponding array. Not absolutely required, but makes comparing with comp choice like for like, so less
     let compChoice = getCompChoice();                  //     working out what is required for any given comparison.
     let winner = findWinner(playChoice, compChoice); 
     if (winner == "computer"){compScore ++}
     else if (winner == "player"){playScore ++}
-    resultText = textMaker(winner, compChoice, playChoice);
+    let resultText = textMaker(winner, compChoice, playChoice);
     playScoreOut.textContent = `${playScore}`;
     compScoreOut.textContent = `${compScore}`;
     roundText.textContent = `${resultText}`;
